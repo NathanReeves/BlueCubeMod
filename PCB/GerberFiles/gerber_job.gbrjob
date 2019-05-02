@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-05-02T16:50:29Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.3.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.640844,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "BlueCubeModR2"
+        },
+        "Owner": "Nathan Reeves <nathan.m.reeves@gmail.com>",
+        "Size": {
+            "X": 38.608,
+            "Y": 22.0754
+        }
+    }
+}
