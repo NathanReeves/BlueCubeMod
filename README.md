@@ -1,10 +1,14 @@
 # BlueCubeMod
 
-ESP32 based GameCube Controller Bluetooth conversion using BTstack
+ESP32 based GameCube Controller Bluetooth conversion for Nintendo Switch
 
+v1:
 Mac/PC/PS4 supported (tested using Dolphin Emulator on Mac)
 
 For Switch/RaspberryPi, use an 8Bitdo USB adapter
+
+v2: 
+Switch support only - no adapter required
 
 ## Wiring:
 
@@ -12,13 +16,13 @@ For Switch/RaspberryPi, use an 8Bitdo USB adapter
 
 - Connect GND to controller's ground pin (Black)
 
-## Build instructions:
+## Build instructions(v2):
 
-- Get esp-idf	https://docs.espressif.com/projects/esp-idf/en/latest/get-started/
+- Use this esp-idf fork here: https://github.com/NathanReeves/esp-idf
 
-- Get BTstack - Dev  Branch (as of 4/29) https://github.com/bluekitchen/btstack/tree/master/port/esp32
+- Set up the esp-idf environment: https://docs.espressif.com/projects/esp-idf/en/latest/get-started/
 
-- Clone BlueCubeMod
+- Get the BlueCubeModv2 firmware
 
 - If you haven’t flashed an ESP32 project before, you need the port name of ESP32 for the config file. If using unix system, to get the port name of a USB device run:
 

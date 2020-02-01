@@ -1816,13 +1816,11 @@ Datasheet</description>
 <package name="SW_JS102011JCQN">
 <wire x1="-4.25" y1="1.8" x2="4.25" y2="1.8" width="0.127" layer="51"/>
 <wire x1="4.25" y1="1.8" x2="4.25" y2="-1.8" width="0.127" layer="51"/>
-<wire x1="4.25" y1="-1.8" x2="-4.25" y2="-1.8" width="0.127" layer="51"/>
 <wire x1="-4.25" y1="-1.8" x2="-4.25" y2="1.8" width="0.127" layer="51"/>
 <wire x1="-4.25" y1="1.8" x2="-0.88" y2="1.8" width="0.127" layer="21"/>
 <wire x1="0.88" y1="1.8" x2="4.25" y2="1.8" width="0.127" layer="21"/>
 <wire x1="-4.25" y1="-1.8" x2="-4.25" y2="1.8" width="0.127" layer="21"/>
 <wire x1="4.25" y1="1.8" x2="4.25" y2="-1.8" width="0.127" layer="21"/>
-<wire x1="1.66" y1="-1.8" x2="-1.66" y2="-1.8" width="0.127" layer="21"/>
 <wire x1="-4.5" y1="2.25" x2="4.5" y2="2.25" width="0.05" layer="39"/>
 <wire x1="4.5" y1="2.25" x2="4.5" y2="-2.25" width="0.05" layer="39"/>
 <wire x1="4.5" y1="-2.25" x2="-4.5" y2="-2.25" width="0.05" layer="39"/>
@@ -1830,6 +1828,10 @@ Datasheet</description>
 <smd name="2" x="0" y="1.2" dx="1.6" dy="1" layer="1" rot="R90"/>
 <smd name="1" x="-2.5" y="-1.2" dx="1.6" dy="1" layer="1" rot="R90"/>
 <smd name="3" x="2.5" y="-1.2" dx="1.6" dy="1" layer="1" rot="R90"/>
+<wire x1="-0.635" y1="-1.778" x2="-1.27" y2="-2.159" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-2.159" x2="-0.635" y2="-2.54" width="0.127" layer="21"/>
+<text x="0.254" y="-2.286" size="0.254" layer="21" rot="SR180">ON</text>
+<wire x1="-1.27" y1="-2.159" x2="1.016" y2="-2.159" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -2450,11 +2452,12 @@ Datasheet</description>
 <wire x1="170.18" y1="101.6" x2="170.18" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="88.9" x2="177.8" y2="96.52" width="0.1524" layer="91"/>
 <junction x="177.8" y="96.52"/>
-<label x="167.64" y="101.6" size="1.778" layer="95"/>
+<label x="170.18" y="99.06" size="1.778" layer="95"/>
 <pinref part="C24" gate="G$1" pin="1"/>
-<pinref part="S2" gate="G$1" pin="3"/>
-<wire x1="165.1" y1="101.6" x2="170.18" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="101.6" x2="170.18" y2="106.68" width="0.1524" layer="91"/>
 <junction x="170.18" y="101.6"/>
+<pinref part="S2" gate="G$1" pin="1"/>
+<wire x1="170.18" y1="106.68" x2="165.1" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -2468,18 +2471,6 @@ Datasheet</description>
 <pinref part="U7" gate="G$1" pin="OUT"/>
 <wire x1="203.2" y1="96.52" x2="220.98" y2="96.52" width="0.1524" layer="91"/>
 <junction x="220.98" y="104.14"/>
-</segment>
-<segment>
-<pinref part="U2" gate="IC" pin="VDD"/>
-<wire x1="88.9" y1="68.58" x2="86.36" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U2" gate="IC" pin="VIO"/>
-<wire x1="86.36" y1="66.04" x2="88.9" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="66.04" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
-<label x="93.98" y="66.04" size="1.778" layer="95"/>
-<wire x1="88.9" y1="66.04" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
-<junction x="88.9" y="66.04"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<junction x="88.9" y="68.58"/>
 </segment>
 </net>
 <net name="VBUS" class="0">
@@ -2625,6 +2616,20 @@ Datasheet</description>
 <pinref part="U2" gate="IC" pin="!DTR"/>
 <wire x1="45.72" y1="48.26" x2="40.64" y2="48.26" width="0.1524" layer="91"/>
 <label x="40.64" y="48.26" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="3.3V_USB" class="0">
+<segment>
+<pinref part="U2" gate="IC" pin="VDD"/>
+<wire x1="88.9" y1="68.58" x2="86.36" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U2" gate="IC" pin="VIO"/>
+<wire x1="86.36" y1="66.04" x2="88.9" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="66.04" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
+<label x="93.98" y="66.04" size="1.778" layer="95"/>
+<wire x1="88.9" y1="66.04" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
+<junction x="88.9" y="66.04"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<junction x="88.9" y="68.58"/>
 </segment>
 </net>
 </nets>
