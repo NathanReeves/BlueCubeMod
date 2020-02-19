@@ -63,6 +63,13 @@ static uint8_t rt_send = 0;
 //RMT Transmitter Init - for reading GameCube controller
 rmt_item32_t items[25];
 rmt_config_t rmt_tx;
+
+SemaphoreHandle_t xSemaphore;
+bool connected = false;
+int paired = 0;
+TaskHandle_t SendingHandle = NULL;
+TaskHandle_t BlinkHandle = NULL;
+uint8_t timer = 0;
 static void rmt_tx_init()
 {
     
@@ -378,14 +385,9 @@ static void get_buttons()
         
     }
 }
-SemaphoreHandle_t xSemaphore;
-bool connected = false;
-int paired = 0;
-TaskHandle_t SendingHandle = NULL;
-TaskHandle_t BlinkHandle = NULL;
+
 //Switch button report example //         batlvl       Buttons              Lstick           Rstick
 //static uint8_t report30[] = {0x30, 0x00, 0x90,   0x00, 0x00, 0x00,   0x00, 0x00, 0x00,   0x00, 0x00, 0x00};
-uint8_t timer = 0;
 static uint8_t report30[] = {
     0x30,
     0x0,
