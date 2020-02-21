@@ -13,8 +13,10 @@ Switch support only - no adapter required
 - Connect pins 23 and 18 to GameCube controller's data pin (Red)
 
 - Connect GND to controller's ground pin (Black)
-![alt text](Modding Resources/GameCube Controller Pinout SideView.jpg)
-![alt text](Modding Resources/GameCube Controller Pinout TopView.png)
+
+![alt text](ModdingResources/GameCubeControllerPinoutSideView.jpg?raw=true)
+
+![alt text](ModdingResources/GameCubeControllerPinoutTopView.png?raw=true)
 
 ## Build instructions(v2):
 
