@@ -14,9 +14,9 @@ Switch support only - no adapter required
 
 - Connect GND to controller's ground pin (Black)
 
-![alt text](ModdingResources/GameCubeControllerPinoutSideView.jpg?raw=true)
+![alt text](Modding%20Resources/GameCube%20Controller%20Pinout%20SideView.jpg?raw=true)
 
-![alt text](ModdingResources/GameCubeControllerPinoutTopView.png?raw=true)
+![alt text](Modding%20Resources/GameCube%20Controller%20Pinout%20TopView.png?raw=true)
 
 ## Build instructions(v2):
 
