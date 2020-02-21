@@ -3,9 +3,7 @@
 ESP32 based GameCube Controller Bluetooth conversion for Nintendo Switch
 
 v1:
-Mac/PC/PS4 supported (tested using Dolphin Emulator on Mac)
-
-For Switch/RaspberryPi, use an 8Bitdo USB adapter
+Mac/PC/PS4 supported (tested using Dolphin Emulator on Mac, for Switch/RaspberryPi, use an 8Bitdo USB adapter)
 
 v2: 
 Switch support only - no adapter required
@@ -15,6 +13,8 @@ Switch support only - no adapter required
 - Connect pins 23 and 18 to GameCube controller's data pin (Red)
 
 - Connect GND to controller's ground pin (Black)
+![alt text](Modding Resources/GameCube Controller Pinout SideView.jpg)
+![alt text](Modding Resources/GameCube Controller Pinout TopView.png)
 
 ## Build instructions(v2):
 
@@ -39,4 +39,15 @@ Switch support only - no adapter required
 - Compile and flash the program, run:
 
 `make flash monitor`
+
+
+Resources used:
+
+http://www.int03.co.uk/crema/hardware/gamecube/gc-control.htm
+
+https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering
+
+https://github.com/timmeh87/switchnotes
+
+Thank you to [@Molorius]( https://github.com/Molorius ) for implementing the bluedroid Classic stack for esp
 
