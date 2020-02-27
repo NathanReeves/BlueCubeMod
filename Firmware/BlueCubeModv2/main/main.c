@@ -368,7 +368,6 @@ static void get_buttons()
                 }
             }*/
             /////
-            xSemaphoreTake(xSemaphore, portMAX_DELAY);
             but1_send = but1;
             but2_send = but2;
             but3_send = but3;
@@ -378,7 +377,6 @@ static void get_buttons()
             cy_send = cy + cycalib;
             lt_send = 0;//lt;//left trigger analog
             rt_send = 0;//rt;//right trigger analog
-            xSemaphoreGive(xSemaphore);
         }else{
             //log_info("GameCube controller read fail");
         }
