@@ -401,6 +401,10 @@ static uint8_t report30[] = {
     0,//Rs
     0x08
 };
+static uint8_t emptyReport[] = {
+    0x0,
+    0x0
+};
 
 void send_buttons()
 {
@@ -422,12 +426,17 @@ void send_buttons()
     timer+=1;
     if(timer == 255)
         timer = 0;
-    esp_hid_device_send_report(ESP_HIDD_REPORT_TYPE_INTRDATA, 0xa1, sizeof(report30), report30);
     
     if(!paired)
+    {
+        esp_hid_device_send_report(ESP_HIDD_REPORT_TYPE_INTRDATA, 0xa1, sizeof(emptyReport), emptyReport);
         vTaskDelay(100);
+    }
     else
+    {
+        esp_hid_device_send_report(ESP_HIDD_REPORT_TYPE_INTRDATA, 0xa1, sizeof(report30), report30);
         vTaskDelay(15);
+    }
     
     
 }
