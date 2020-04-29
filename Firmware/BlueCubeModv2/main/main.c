@@ -11,6 +11,7 @@
 #include "esp_bt_device.h"
 #include "esp_bt.h"
 #include "esp_err.h"
+#include "esp_system.h"
 #include "nvs.h"
 #include "nvs_flash.h"
 #include "esp_gap_bt_api.h"
@@ -743,6 +744,35 @@ void vc_unplug_cb(void) {
     ESP_LOGI(TAG, "host did a virtual cable unplug");
 }
 
+void set_bt_address()
+{
+    //store a random mac address in flash
+    nvs_handle my_handle;
+    esp_err_t err;
+    uint8_t bt_addr[8];
+    
+    err = nvs_open("storage", NVS_READWRITE, &my_handle);
+    if (err != ESP_OK) return err;
+    
+    size_t addr_size = 0;
+    err = nvs_get_blob(my_handle, "mac_addr", NULL, &addr_size);
+    if (err != ESP_OK && err != ESP_ERR_NVS_NOT_FOUND) return err;
+    
+    if (addr_size > 0) {
+        err = nvs_get_blob(my_handle, "mac_addr", bt_addr, &addr_size);
+    }
+    else
+    {
+        for(int i=0; i<8; i++)
+            bt_addr[i] = esp_random()%255;
+        size_t addr_size = sizeof(bt_addr);
+        err = nvs_set_blob(my_handle, "mac_addr", bt_addr, addr_size);
+    }
+    
+    err = nvs_commit(my_handle);
+    nvs_close(my_handle);
+    esp_base_mac_addr_set(bt_addr);
+}
 void print_bt_address() {
     const char* TAG = "bt_address";
     const uint8_t* bd_addr;
@@ -821,9 +851,7 @@ void app_main() {
     io_conf.pull_up_en = 0;
     //configure GPIO with the given settings
     gpio_config(&io_conf);
-    //gap_callbacks = get_device_cb;
-    
-    
+
     app_param.name = "BlueCubeMod";
     app_param.description = "BlueCubeMod Example";
     app_param.provider = "ESP32";
@@ -846,7 +874,9 @@ void app_main() {
         ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK( ret );
-
+    
+    set_bt_address();
+    
 	ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_BLE));
 
 	esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
