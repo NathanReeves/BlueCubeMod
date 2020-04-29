@@ -430,6 +430,7 @@ void send_buttons()
     
     if(!paired)
     {
+        emptyReport[1] = timer;
         esp_hid_device_send_report(ESP_HIDD_REPORT_TYPE_INTRDATA, 0xa1, sizeof(emptyReport), emptyReport);
         vTaskDelay(100);
     }
@@ -772,6 +773,10 @@ void set_bt_address()
     err = nvs_commit(my_handle);
     nvs_close(my_handle);
     esp_base_mac_addr_set(bt_addr);
+    
+    //put mac addr in switch pairing packet
+    for(int z=0; z<6; z++)
+        reply02[z+19] = bt_addr[z];
 }
 void print_bt_address() {
     const char* TAG = "bt_address";
